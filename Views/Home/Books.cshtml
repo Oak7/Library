@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Choose your books to rental ";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+@model IEnumerable<LibraryMVC5.Models.BookModel>
+
+<div class="container">
+    <h2>Books List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Publication Year</th>
+                <th>Available for Rental</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+    <tr>
+        <td>@book.Title</td>
+        <td>@book.Category</td>
+        <td>@book.Author</td>
+        <td>@book.ISBN</td>
+        <td>@book.PublicationYear</td>
+        <td>@(book.IsAvailableForRental ? "Yes" : "No")</td>
+    </tr>}
+        </tbody>
+    </table>
+</div>
+
