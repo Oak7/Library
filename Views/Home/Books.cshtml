@@ -13,30 +13,39 @@
 
 
 <div class="container">
-    <h2>Books List</h2>
+    <h2></h2>
+
+    <form method="get" action="@Url.Action("Books", "Home")">
+        <div class="form-group">
+            <input type="text" name="searchTerm" class="form-control" placeholder="Search by title..." value="@Request.QueryString["searchTerm"]" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <br />
     <table class="table">
         <thead>
             <tr>
                 @*<th style="min-width: 300px;">Image</th>
-                <th>Title</th>*@
+                    <th>Title</th>*@
                 @*<th>Category</th>
-                <th>Author</th>
-                <th>ISBN</th>
-                <th>Publication Year</th>
-                <th>Available for Rental</th>*@
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Publication Year</th>
+                    <th>Available for Rental</th>*@
             </tr>
         </thead>
         <tbody>
             @foreach (var book in Model)
             {
-            <tr>
-                <td>
-                    <a href="/Home/Detalhes?isbn=@book.ISBN">
-                        <img src="/wwwroot/images/@book.ImageUrl"
-                             alt="@book.Title"
-                             class="book-image"
-                             style="width: 250px; height: auto; cursor: pointer;"
-                             data-book='@Html.Raw(JsonConvert.SerializeObject(new {
+                <tr>
+                    <td>
+                        <a href="/Home/Detalhes?isbn=@book.ISBN">
+                            <img src="/wwwroot/images/@book.ImageUrl"
+                                 alt="@book.Title"
+                                 class="book-image"
+                                 style="width: 250px; height: auto; cursor: pointer;"
+                                 data-book='@Html.Raw(JsonConvert.SerializeObject(new {
                                  Title = book.Title,
                                  Category = book.Category,
                                  Author = book.Author,
@@ -44,20 +53,20 @@
                                  PublicationYear = book.PublicationYear,
                                  IsAvailableForRental = book.IsAvailableForRental
                              }))' />
-                    </a>
-                </td>
-                <td style="font-size: 35px;">@book.Title</td>
-                @*td>@book.Category</td>
-                <td>@book.Author</td>
-                <td>@book.ISBN</td>
-                <td>@book.PublicationYear</td>
-                <td>@(book.IsAvailableForRental ? "Yes" : "No")</td>*@
-            </tr>
+                        </a>
+                    </td>
+                    <td style="font-size: 35px;">@book.Title</td>
+                    @*td>@book.Category</td>
+                        <td>@book.Author</td>
+                        <td>@book.ISBN</td>
+                        <td>@book.PublicationYear</td>
+                        <td>@(book.IsAvailableForRental ? "Yes" : "No")</td>*@
+                </tr>
 
             }
 
 
-            
+
 
 
 

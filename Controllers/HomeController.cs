@@ -104,9 +104,24 @@ namespace LibraryMVC5.Controllers
         };
         }
 
-        public ActionResult Books()
+        //public ActionResult Books()
+        //{
+        //    var books = GetBooks();
+        //    return View(books);
+        //}
+        public ActionResult Books(string searchTerm = null)
         {
+            // Obtém a lista completa de livros
             var books = GetBooks();
+
+            // Se o termo de pesquisa não estiver vazio, filtra a lista de livros
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                books = books
+                    .Where(b => b.Title.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)
+                    .ToList();
+            }
+
             return View(books);
         }
 
