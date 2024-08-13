@@ -57,7 +57,23 @@ namespace LibraryMVC5.Controllers
             ImageUrl = "python.jpg"
             },
 
+         new BookModel { Title = "Use a Cabeça! Java",
+            Category = "Java",
+            Author = "Kathy Sierra, Bert Bates",
+            ISBN = "9788576081739",
+            PublicationYear = 2005,
+            IsAvailableForRental = true,
+            ImageUrl = "java.jpg"
+            },
 
+         new BookModel { Title = "Aprendendo Node.js",
+            Category = "Desenvolvimento Web",
+            Author = " Shelly Powers",
+            ISBN = "9788575224533",
+            PublicationYear = 2014,
+            IsAvailableForRental = true,
+            ImageUrl = "node.jpg"
+            },
 
 
         };

@@ -17,8 +17,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th style="min-width: 300px;">Image</th>
-                <th>Title</th>
+                @*<th style="min-width: 300px;">Image</th>
+                <th>Title</th>*@
                 @*<th>Category</th>
                 <th>Author</th>
                 <th>ISBN</th>
@@ -46,8 +46,8 @@
                              }))' />
                     </a>
                 </td>
-                <td>@book.Title</td>
-                <@*td>@book.Category</td>
+                <td style="font-size: 35px;">@book.Title</td>
+                @*td>@book.Category</td>
                 <td>@book.Author</td>
                 <td>@book.ISBN</td>
                 <td>@book.PublicationYear</td>
