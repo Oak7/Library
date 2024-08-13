@@ -1,0 +1,38 @@
+﻿@model LibraryMVC5.Models.BookModel
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<div class="container">
+    <h2>@Model.Title</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/images/@Model.ImageUrl" alt="@Model.Title" style="width: 100%; height: auto;" />
+        </div>
+        <div class="col-md-8">
+            <p><strong>Category:</strong> @Model.Category</p>
+            <p><strong>Author:</strong> @Model.Author</p>
+            <p><strong>ISBN:</strong> @Model.ISBN</p>
+            <p><strong>Publication Year:</strong> @Model.PublicationYear</p>
+            <p>
+                <strong>Available for Rental:</strong>
+                <input type="checkbox" disabled @if (Model.IsAvailableForRental) { <text> checked</text> } />
+            </p>
+
+            <!-- Button to Rent the Book -->
+            @if (Model.IsAvailableForRental)
+            {
+                <form method="post" action="@Url.Action("Detalhes", "Home")">
+                    <input type="hidden" name="ISBN" value="@Model.ISBN" />
+                    <button type="submit" class="btn btn-primary">Rent This Book</button>
+                </form>
+            }
+            else
+            {
+                <p>This book is not available for rental.</p>
+            }
+        </div>
+    </div>
+</div>

@@ -1,38 +1,87 @@
-﻿@{
-    ViewBag.Title = "Choose your books to rental ";
+﻿@using Newtonsoft.Json
+
+
+@{
+    ViewBag.Title = "Select your books for rental";
 }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<p></p>
 
 @model IEnumerable<LibraryMVC5.Models.BookModel>
+
 
 <div class="container">
     <h2>Books List</h2>
     <table class="table">
         <thead>
             <tr>
+                <th style="min-width: 300px;">Image</th>
                 <th>Title</th>
-                <th>Category</th>
+                @*<th>Category</th>
                 <th>Author</th>
                 <th>ISBN</th>
                 <th>Publication Year</th>
-                <th>Available for Rental</th>
+                <th>Available for Rental</th>*@
             </tr>
         </thead>
         <tbody>
             @foreach (var book in Model)
             {
-    <tr>
-        <td>@book.Title</td>
-        <td>@book.Category</td>
-        <td>@book.Author</td>
-        <td>@book.ISBN</td>
-        <td>@book.PublicationYear</td>
-        <td>@(book.IsAvailableForRental ? "Yes" : "No")</td>
-    </tr>}
+            <tr>
+                <td>
+                    <a href="/Home/Detalhes?isbn=@book.ISBN">
+                        <img src="/wwwroot/images/@book.ImageUrl"
+                             alt="@book.Title"
+                             class="book-image"
+                             style="width: 250px; height: auto; cursor: pointer;"
+                             data-book='@Html.Raw(JsonConvert.SerializeObject(new {
+                                 Title = book.Title,
+                                 Category = book.Category,
+                                 Author = book.Author,
+                                 ISBN = book.ISBN,
+                                 PublicationYear = book.PublicationYear,
+                                 IsAvailableForRental = book.IsAvailableForRental
+                             }))' />
+                    </a>
+                </td>
+                <td>@book.Title</td>
+                <@*td>@book.Category</td>
+                <td>@book.Author</td>
+                <td>@book.ISBN</td>
+                <td>@book.PublicationYear</td>
+                <td>@(book.IsAvailableForRental ? "Yes" : "No")</td>*@
+            </tr>
+
+            }
+
+
+            
+
+
+
         </tbody>
     </table>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="bookModal" tabindex="-1" role="dialog" aria-labelledby="bookModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!-- O modal está vazio -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<script>
+    $(document).ready(function () {
+        $('.book-image').on('click', function () {
+            $('#bookModal').modal('show');
+        });
+    });
+</script>

@@ -13,5 +13,6 @@ namespace LibraryMVC5.Models
         public string ISBN { get; set; }
         public int PublicationYear { get; set; }
         public bool IsAvailableForRental { get; set; }
+        public string ImageUrl { get; set; }  
     }
 }
