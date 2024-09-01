@@ -84,7 +84,7 @@ namespace LibraryMVC5.Controllers
                 IsAvailableForRental = true,
                 ImageUrl = "Ed.jpg" },
 
-             new BookModel {
+            new BookModel {
                 Title = "Introdução à Programação com Python",
                 Category = "Python",
                 Author = "Nilo Ney Coutinho Menezes",
@@ -93,7 +93,7 @@ namespace LibraryMVC5.Controllers
                 IsAvailableForRental = true,
                 ImageUrl = "intPython.jpg" },
 
-                new BookModel {
+            new BookModel {
                 Title = " Algoritmos: Teoria e Prática",
                 Category = "Algoritmos",
                 Author = "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
@@ -125,6 +125,19 @@ namespace LibraryMVC5.Controllers
             return View(books);
         }
 
+        //public ActionResult Detalhes(string isbn)
+        //{
+        //    var books = GetBooks();
+        //    var book = books.FirstOrDefault(b => b.ISBN == isbn);
+
+        //    if (book == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    return View(book);
+        //}
+
         public ActionResult Detalhes(string isbn)
         {
             var books = GetBooks();
@@ -134,7 +147,6 @@ namespace LibraryMVC5.Controllers
             {
                 return HttpNotFound();
             }
-
             return View(book);
         }
     }

@@ -83,4 +83,3 @@ C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.csproj
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.csproj.CopyComplete
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.dll
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.pdb
-C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.csproj.AssemblyReference.cache
