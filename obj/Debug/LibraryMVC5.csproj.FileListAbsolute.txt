@@ -79,6 +79,7 @@ C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\bin\pt-br\System.Web.Razor.r
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.csproj.AssemblyReference.cache
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.csproj.CoreCompileInputs.cache
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.csproj.CopyComplete
 C:\Users\gabriela.carvalho\source\repos\LibraryMVC5\obj\Debug\LibraryMVC5.dll

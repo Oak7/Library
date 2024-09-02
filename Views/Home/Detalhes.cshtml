@@ -12,7 +12,7 @@
     <div class="container" style="display: flex;">
         <div style="flex: 1;">
             <img src="/wwwroot/images/@Model.ImageUrl" 
-                 style="width: 200px; height: 200px; margin-top:20px;" />
+                 style="width: 50%; height: auto; margin-top:20px;" />
         </div>
         <div style="flex: 2; padding-left: 20px; font-size:20px;">
             <p><strong>Category:</strong> @Model.Category</p>
@@ -24,19 +24,24 @@
                 <input type="checkbox" disabled @if (Model.IsAvailableForRental) { <text> checked</text> } />
             </p>
 
-            <!-- Button to Rent the Book -->
-            @if (Model.IsAvailableForRental)
-            {
-                <form style="margin-top:30px;"
-                      method="post" action="@Url.Action("Detalhes", "Home")">
-                    <input type="hidden" name="ISBN" value="@Model.ISBN" />
-                    <button type="submit" class="btn btn-primary">Rent This Book</button>
-                </form>
-            }
-            else
-            {
-                <p>This book is not available for rental.</p>
-            }
+            <!-- Container para os botões com Flexbox -->
+            <div style="display: flex; gap: 10px; margin-top: 30px;">
+                @if (Model.IsAvailableForRental)
+                {
+                    <form method="post" action="@Url.Action("Detalhes", "Home")" style="margin: 0;">
+                        <input type="hidden" name="ISBN" value="@Model.ISBN" />
+                        <button type="submit" class="btn btn-primary">Rent This Book</button>
+                    </form>
+                }
+                else
+                {
+                    <p>This book is not available for rental.</p>
+                }
+
+                <!-- Botão para retornar à página inicial -->
+                <a href="@Url.Action("Books", "Home")" class="btn btn-danger">Home</a>
+            </div>
+
         </div>
     </div>
 </div>
