@@ -19,10 +19,7 @@
             <p><strong>Author:</strong> @Model.Author</p>
             <p><strong>ISBN:</strong> @Model.ISBN</p>
             <p><strong>Publication Year:</strong> @Model.PublicationYear</p>
-            <p>
-                <strong>Available for Rental:</strong>
-                <input type="checkbox" disabled @if (Model.IsAvailableForRental) { <text> checked</text> } />
-            </p>
+            
 
             <!-- Container para os botões com Flexbox -->
             <div style="display: flex; gap: 10px; margin-top: 30px;">
@@ -30,7 +27,7 @@
                 {
                     <form method="post" action="@Url.Action("Detalhes", "Home")" style="margin: 0;">
                         <input type="hidden" name="ISBN" value="@Model.ISBN" />
-                        <button type="submit" class="btn btn-primary">Rent This Book</button>
+                        <button style="width:100px;" type="submit" class="btn btn-primary">Rent</button>
                     </form>
                 }
                 else
@@ -39,7 +36,7 @@
                 }
 
                 <!-- Botão para retornar à página inicial -->
-                <a href="@Url.Action("Books", "Home")" class="btn btn-danger">Home</a>
+                <a href="@Url.Action("Books", "Home")" class="btn btn-danger" style="width:100px;">Home</a>
             </div>
 
         </div>
